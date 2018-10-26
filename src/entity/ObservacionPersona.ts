@@ -1,35 +1,22 @@
-import {Index,Entity, PrimaryColumn, PrimaryGeneratedColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, ManyToOne } from "typeorm";
+import { Tutores } from "./Tutores";
+import { UserApp } from "./UserApp";
+import { Personas } from "./Personas";
 
-
-@Entity("observacion_persona",{schema:"control"})
-@Index("RefPersonas16",["Dni",])
+@Entity()
 export class ObservacionPersona {
 
-    @PrimaryGeneratedColumn({ 
-        name:"Id_Observacion"
-        })
-    Id_Observacion:number;
-        
+    @PrimaryGeneratedColumn({ name: 'id_Observacion' })
+    id: number;
 
-    @Column("int",{ 
-        nullable:false,
-        name:"Dni"
-        })
-    Dni:number;
-        
+    @Column({ name: 'Detalle' })
+    detalle: string;
 
-    @Column("varchar",{ 
-        nullable:true,
-        length:500,
-        name:"Detalle"
-        })
-    Detalle:string | null;
-        
+    @Column({ name: 'Fecha_Actualizacion' })
+    fechaActualizacion: Date;
 
-    @Column("date",{ 
-        nullable:true,
-        name:"Fecha_Actualizacion"
-        })
-    Fecha_Actualizacion:string | null;
-        
+    @ManyToOne(type => Personas, persona => persona.observaciones)
+    @JoinColumn({ name: 'Dni' })
+    persona: Personas;
+
 }

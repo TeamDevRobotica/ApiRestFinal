@@ -1,27 +1,16 @@
-import {Index,Entity, PrimaryColumn, PrimaryGeneratedColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { HorariosTrayectos } from "./HorariosTrayectos";
 
-
-@Entity("division",{schema:"control"})
+@Entity()
 export class Division {
 
-    @PrimaryGeneratedColumn({ 
-        name:"Id_Division"
-        })
-    Id_Division:number;
-        
+    @PrimaryGeneratedColumn({ name: "Id_Division" })
+    id: number;
 
-    @Column("varchar",{ 
-        nullable:true,
-        length:100,
-        name:"Descripcion"
-        })
-    Descripcion:string | null;
-        
+    @Column({ name: "Descripcion" })
+    descripcion: string;
 
-    @Column("int",{ 
-        nullable:true,
-        name:"Id_Trayecto"
-        })
-    Id_Trayecto:number | null;
-        
+    @OneToMany(type => HorariosTrayectos, horario => horario.division)
+    horarios: HorariosTrayectos[];
+
 }

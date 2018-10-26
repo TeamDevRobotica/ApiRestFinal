@@ -1,92 +1,51 @@
-import {Index,Entity, PrimaryColumn, PrimaryGeneratedColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
+import { Entity, PrimaryColumn, PrimaryGeneratedColumn, Column, Double, ManyToOne, OneToMany, JoinColumn } from "typeorm";
+import { Division } from "./Division";
+import { Personas } from "./Personas";
+import { Turno } from "./Turno";
+import { Trayectos } from "./Trayectos";
 
 
-@Entity("horarios_trayectos",{schema:"control"})
+@Entity()
 export class HorariosTrayectos {
 
-    @PrimaryGeneratedColumn({ 
-        name:"Id_Horario"
-        })
-    Id_Horario:number;
-        
+    @PrimaryGeneratedColumn({ name: "Id_Horario" })
+    id: number;
 
-    @Column("int",{ 
-        nullable:false,
-        default:"0",
-        name:"Id_Trayecto"
-        })
-    Id_Trayecto:number;
-        
+    @Column({ name: "Nombre_Dia" })
+    dia: string;
 
-    @Column("int",{ 
-        nullable:false,
-        default:"0",
-        name:"Id_Division"
-        })
-    Id_Division:number;
-        
+    @Column("double", {
+        nullable: true,
+        precision: 10,
+        scale: 2,
+        name: "Horario_Entrada"
+    })
+    horarioEntrada: number;
 
-    @Column("int",{ 
-        nullable:false,
-        default:"0",
-        name:"Id_Cohorte"
-        })
-    Id_Cohorte:number;
-        
+    @Column("double", {
+        nullable: true,
+        precision: 10,
+        scale: 2,
+        name: "Horario_Salida"
+    })
+    horarioSalida: number;
 
-    @Column("int",{ 
-        nullable:true,
-        name:"Id_Turno"
-        })
-    Id_Turno:number | null;
-        
+    @Column({ name: "Observacion" })
+    observacion: string;
 
-    @Column("varchar",{ 
-        nullable:true,
-        length:100,
-        name:"Nombre_Dia"
-        })
-    Nombre_Dia:string | null;
-        
+    @ManyToOne(type => Division, division => division.horarios)
+    @JoinColumn({ name: "Id_Division" })
+    division: Division;
 
-    @Column("double",{ 
-        nullable:true,
-        precision:10,
-        scale:2,
-        name:"Horario_Entrada"
-        })
-    Horario_Entrada:number | null;
-        
+    @OneToMany(type => Personas, persona => persona.horario)
+    personas: Personas[];
 
-    @Column("double",{ 
-        nullable:true,
-        precision:10,
-        scale:2,
-        name:"Horario_Salida"
-        })
-    Horario_Salida:number | null;
-        
+    @ManyToOne(type => Turno, turno => turno.horarios)
+    @JoinColumn({ name: "Id_Turno" })
+    turno: Turno;
 
-    @Column("varchar",{ 
-        nullable:true,
-        length:500,
-        name:"Observacion"
-        })
-    Observacion:string | null;
-        
+    @ManyToOne(type => Trayectos, trayecto => trayecto.horarios)
+    @JoinColumn({ name: "Id_Trayecto" })
+    trayecto: Trayectos;
 
-    @Column("date",{ 
-        nullable:true,
-        name:"Fecha_Actualizacion"
-        })
-    Fecha_Actualizacion:string | null;
-        
-
-    @Column("varchar",{ 
-        nullable:true,
-        length:100,
-        name:"Usuario"
-        })
-    Usuario:string | null;
-        
 }
