@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
 import { Tutores } from "./Tutores";
-import { NivelUserApp } from "./NivelUserApp";
+import { UserAppNivel } from "./UserAppNivel";
 
 @Entity()
 export class UserApp {
@@ -18,7 +18,7 @@ export class UserApp {
     @JoinColumn()
     tutor: Tutores;
 
-    @ManyToOne(type => NivelUserApp, nivelUserApp => nivelUserApp.users)
-    nivel: NivelUserApp;
+    @ManyToOne(type => UserAppNivel, nivelUserApp => nivelUserApp.users)
+    nivel: UserAppNivel;
 
 }

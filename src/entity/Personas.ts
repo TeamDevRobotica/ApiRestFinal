@@ -159,9 +159,7 @@ export class Personas {
     })
     Id_Estado_Civil: number;
 
-    @ManyToOne(type => HorariosTrayectos, horario => horario.personas)
-    @JoinColumn({ name: "Id_Horario" })
-    horario: HorariosTrayectos;
+
     // // @Column("int", {
     // //     nullable: false,
     // //     name: "Dni_Tutor"
@@ -169,9 +167,6 @@ export class Personas {
     // @ManyToOne(type => Tutores/* , tutor => tutor.hijos */)
     // Dni_Tutor: number;
 
-    @ManyToOne(type => Tutores, tutor => tutor.hijos)
-    @JoinColumn({ name: "Dni_Tutor" })
-    tutor: Tutores;
 
 
     @Column("int", {
@@ -211,4 +206,11 @@ export class Personas {
     @OneToMany(type => NotificacionPersona, notificacion => notificacion.persona)
     notificaciones: NotificacionPersona[];
 
+    @ManyToOne(type => Tutores, tutor => tutor.hijos)
+    @JoinColumn({ name: "Dni_Tutor" })
+    tutor: Tutores;
+
+    @ManyToOne(type => HorariosTrayectos, horario => horario.personas)
+    @JoinColumn({ name: "Id_Horario" })
+    horario: HorariosTrayectos;
 }

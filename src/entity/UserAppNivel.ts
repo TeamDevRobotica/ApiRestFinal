@@ -3,7 +3,7 @@ import { Tutores } from "./Tutores";
 import { UserApp } from "./UserApp";
 
 @Entity()
-export class NivelUserApp {
+export class UserAppNivel {
 
     @PrimaryGeneratedColumn()
     id: number;

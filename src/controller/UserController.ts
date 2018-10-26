@@ -7,6 +7,10 @@ export class UserController {
     private userRepository = getRepository(UserApp);
 
     async all(request: Request, response: Response, next: NextFunction) {
+        response.setHeader('Access-Control-Allow-Origin', '*');
+        response.setHeader('Access-Control-Allow-Methods', 'GET');
+        response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        response.setHeader('Access-Control-Allow-Credentials', 'true');
         return this.userRepository.find();
     }
 
