@@ -19,7 +19,10 @@ export class UserController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        return this.userRepository.save(request.body);
+        console.log('//// ' + request.body.nivelId);
+        let user = await this.userRepository.create(request.body);
+        console.log(' Save ' + user);
+        return this.userRepository.save(user);
     }
 
     async remove(request: Request, response: Response, next: NextFunction) {
