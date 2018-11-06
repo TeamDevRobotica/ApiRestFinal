@@ -5,7 +5,6 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { Routes } from "./routes";
 import * as logger from 'morgan';
-import { UserApp } from "./entity/UserApp";
 import * as cors from 'cors';
 
 createConnection().then(async connection => {

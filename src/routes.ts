@@ -1,6 +1,9 @@
 import { UserController } from "./controller/UserController";
 import { PersonaControlador } from "./controller/PersonaControlador";
 import { TutorControlador } from "./controller/TutorControlador";
+import { PreinscripcionControlador } from "./controller/PreinscripcionControlador";
+import { TurnoControlador } from "./controller/TurnoControlador";
+import { PaisControlador } from "./controller/PaisControlador";
 
 export const Routes = [{
     method: "get",
@@ -29,7 +32,6 @@ export const Routes = [{
     controller: UserController,
     action: "loguin"
 },
-
 ///PERSONAS
 {
     method: "get",
@@ -52,7 +54,6 @@ export const Routes = [{
     controller: PersonaControlador,
     action: "remove"
 },
-
 ///TUTORES
 {
     method: "get",
@@ -73,5 +74,71 @@ export const Routes = [{
     method: "delete",
     route: "/tutores",
     controller: TutorControlador,
+    action: "remove"
+},
+//PREINSCRIPCION
+{
+    method: "get",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/preinscripcion/:id",
+    controller: PreinscripcionControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "remove"
+},
+//TURNO
+{
+    method: "get",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/turno/:id",
+    controller: TurnoControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "remove"
+},
+//PAIS
+{
+    method: "get",
+    route: "/pais",
+    controller: PaisControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/pais/:id",
+    controller: PaisControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/pais",
+    controller: PaisControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/pais",
+    controller: PaisControlador,
     action: "remove"
 }];
