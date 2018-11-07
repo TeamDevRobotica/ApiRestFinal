@@ -16,7 +16,6 @@ export class PaisControlador {
 
     async save(request: Request, response: Response, next: NextFunction) {
         let pais = await this.paisRepository.create(request.body);
-        console.log(' Save ', pais);
         return this.paisRepository.save(pais);
     }
 

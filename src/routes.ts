@@ -4,6 +4,9 @@ import { TutorControlador } from "./controller/TutorControlador";
 import { PreinscripcionControlador } from "./controller/PreinscripcionControlador";
 import { TurnoControlador } from "./controller/TurnoControlador";
 import { PaisControlador } from "./controller/PaisControlador";
+import { ProvinciaControlador } from "./controller/ProvinciaControlador";
+import { DepartamentoControlador } from "./controller/DepartamentoControlador";
+import { LocalidadControlador } from "./controller/LocalidadControlador";
 
 export const Routes = [{
     method: "get",
@@ -140,5 +143,76 @@ export const Routes = [{
     method: "delete",
     route: "/pais",
     controller: PaisControlador,
+    action: "remove"
+},
+//PROVINCIA
+{
+    method: "get",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/provincia/:id",
+    controller: ProvinciaControlador,
+    action: "one"
+}, {
+    method: "get",
+    route: "/provincia/:idPais",
+    controller: ProvinciaControlador,
+    action: "buscarProvinciasPais"
+},{
+    method: "post",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "remove"
+},
+//DEPARTAMENTO
+{
+    method: "get",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/departamento/:id",
+    controller: DepartamentoControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "remove"
+},
+//LOCALIDAD
+{
+    method: "get",
+    route: "/localidad",
+    controller: LocalidadControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/localidad/:id",
+    controller: LocalidadControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/localidad",
+    controller: LocalidadControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/localidad",
+    controller: LocalidadControlador,
     action: "remove"
 }];

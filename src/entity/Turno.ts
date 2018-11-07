@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-/* import { type } from "os";
-import { HorariosTrayectos } from "./HorariosTrayectos"; */
+import { type } from "os";
+import { HorariosTrayectos } from "./HorariosTrayectos";
 
 @Entity()
 export class Turno {

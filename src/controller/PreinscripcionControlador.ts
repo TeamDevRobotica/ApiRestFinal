@@ -16,7 +16,6 @@ export class PreinscripcionControlador {
 
     async save(request: Request, response: Response, next: NextFunction) {
         let preinscripcion = await this.preinscripcionRepository.create(request.body);
-        console.log(' Save ', preinscripcion);
         return this.preinscripcionRepository.save(preinscripcion);
     }
 

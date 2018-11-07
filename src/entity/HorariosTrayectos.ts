@@ -1,7 +1,7 @@
 import { Entity, PrimaryColumn, PrimaryGeneratedColumn, Column, Double, ManyToOne, OneToMany, JoinColumn } from "typeorm";
 import { Division } from "./Division";
 import { Personas } from "./Personas";
-import { Turno } from "./Turno";
+/* import { Turno } from "./Turno"; */
 import { Trayectos } from "./Trayectos";
 
 
@@ -40,9 +40,9 @@ export class HorariosTrayectos {
     @OneToMany(type => Personas, persona => persona.horario)
     personas: Personas[];
 
-    @ManyToOne(type => Turno, turno => turno.horarios)
+    /* @ManyToOne(type => Turno, turno => turno.horarios)
     @JoinColumn({ name: "Id_Turno" })
-    turno: Turno;
+    turno: Turno; */
 
     @ManyToOne(type => Trayectos, trayecto => trayecto.horarios)
     @JoinColumn({ name: "Id_Trayecto" })

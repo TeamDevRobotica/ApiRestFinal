@@ -7,7 +7,6 @@ export class TurnoControlador {
     private turnoRepository = getRepository(Turno);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        console.log("rest ", request.body);
         return this.turnoRepository.find();
     }
 
@@ -17,7 +16,6 @@ export class TurnoControlador {
 
     async save(request: Request, response: Response, next: NextFunction) {
         let turno = await this.turnoRepository.create(request.body);
-        console.log(' Save ', turno);
         return this.turnoRepository.save(turno);
     }
 
