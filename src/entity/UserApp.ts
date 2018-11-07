@@ -9,16 +9,22 @@ export class UserApp {
     id: number;
 
     @Column()
-    nombreUsuario: string;
+    apellidoYNombre: string;
 
     @Column()
+    dni: number;
+
+    @Column({ name: "nombreUsuario" })
+    nombreUsuario: string;
+
+    @Column({ name: "claveUsuario"})
     claveUsuario: string;
 
     @OneToOne(type => Tutores, tutor => tutor.userapp)
     @JoinColumn()
-    tutor: Tutores;
+    tutorDniTutor: Tutores;
 
     @ManyToOne(type => UserAppNivel, nivelUserApp => nivelUserApp.users)
-    nivel: UserAppNivel;
+    nivelId: UserAppNivel;
 
 }
