@@ -7,7 +7,7 @@ export class PaisControlador {
     private paisRepository = getRepository(Paises);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        return this.paisRepository.find();
+        return this.paisRepository.find({ relations: ['provincias', 'provincias.departamentos', 'provincias.departamentos.localidades'] });
     }
 
     async one(request: Request, response: Response, next: NextFunction) {

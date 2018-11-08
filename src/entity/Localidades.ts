@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Departamento } from "./Departamento";
 
 @Entity()
 export class Localidades {
@@ -9,6 +10,8 @@ export class Localidades {
     @Column({ name: "Nombre" })
     nombre: string;
 
-    @Column({ name: "Id_Departamento"})
-    departamente: number;
+    @ManyToOne(type => Departamento, departamento => departamento.localidades)
+    @JoinColumn({ name: "Id_Departamento" })
+    departamento: Departamento;
+
 }
