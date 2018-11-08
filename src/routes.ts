@@ -1,6 +1,12 @@
 import { UserController } from "./controller/UserController";
 import { PersonaControlador } from "./controller/PersonaControlador";
 import { TutorControlador } from "./controller/TutorControlador";
+import { PreinscripcionControlador } from "./controller/PreinscripcionControlador";
+import { TurnoControlador } from "./controller/TurnoControlador";
+import { PaisControlador } from "./controller/PaisControlador";
+import { ProvinciaControlador } from "./controller/ProvinciaControlador";
+import { DepartamentoControlador } from "./controller/DepartamentoControlador";
+import { LocalidadControlador } from "./controller/LocalidadControlador";
 
 export const Routes = [{
     method: "get",
@@ -29,7 +35,6 @@ export const Routes = [{
     controller: UserController,
     action: "loguin"
 },
-
 ///PERSONAS
 {
     method: "get",
@@ -52,7 +57,6 @@ export const Routes = [{
     controller: PersonaControlador,
     action: "remove"
 },
-
 ///TUTORES
 {
     method: "get",
@@ -73,5 +77,142 @@ export const Routes = [{
     method: "delete",
     route: "/tutores",
     controller: TutorControlador,
+    action: "remove"
+},
+//PREINSCRIPCION
+{
+    method: "get",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/preinscripcion/:id",
+    controller: PreinscripcionControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/preinscripcion",
+    controller: PreinscripcionControlador,
+    action: "remove"
+},
+//TURNO
+{
+    method: "get",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/turno/:id",
+    controller: TurnoControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/turno",
+    controller: TurnoControlador,
+    action: "remove"
+},
+//PAIS
+{
+    method: "get",
+    route: "/pais",
+    controller: PaisControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/pais/:id",
+    controller: PaisControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/pais",
+    controller: PaisControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/pais",
+    controller: PaisControlador,
+    action: "remove"
+},
+//PROVINCIA
+{
+    method: "get",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/provincia/:id",
+    controller: ProvinciaControlador,
+    action: "one"
+}, {
+    method: "get",
+    route: "/provincia/:idPais",
+    controller: ProvinciaControlador,
+    action: "buscarProvinciasPais"
+},{
+    method: "post",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/provincia",
+    controller: ProvinciaControlador,
+    action: "remove"
+},
+//DEPARTAMENTO
+{
+    method: "get",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/departamento/:id",
+    controller: DepartamentoControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/departamento",
+    controller: DepartamentoControlador,
+    action: "remove"
+},
+//LOCALIDAD
+{
+    method: "get",
+    route: "/localidad",
+    controller: LocalidadControlador,
+    action: "all"
+}, {
+    method: "get",
+    route: "/localidad/:id",
+    controller: LocalidadControlador,
+    action: "one"
+}, {
+    method: "post",
+    route: "/localidad",
+    controller: LocalidadControlador,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/localidad",
+    controller: LocalidadControlador,
     action: "remove"
 }];

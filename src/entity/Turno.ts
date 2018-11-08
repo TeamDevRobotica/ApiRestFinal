@@ -10,7 +10,4 @@ export class Turno {
 
     @Column({ name: "Descripcion" })
     descripcion: string;
-
-    @OneToMany(type => HorariosTrayectos, horario => horario.turno)
-    horarios: HorariosTrayectos[];
 }
