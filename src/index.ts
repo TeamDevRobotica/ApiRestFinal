@@ -7,6 +7,7 @@ import { Routes } from "./routes";
 import * as logger from 'morgan';
 import { UserApp } from "./entity/UserApp";
 import * as cors from 'cors';
+import { UserController } from "./controller/UserController";
 
 createConnection().then(async connection => {
 
