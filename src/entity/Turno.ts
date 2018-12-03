@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { type } from "os";
 import { HorariosTrayectos } from "./HorariosTrayectos";
 
 @Entity()
@@ -10,4 +9,8 @@ export class Turno {
 
     @Column({ name: "Descripcion" })
     descripcion: string;
+
+    @OneToMany(type => HorariosTrayectos, horariosTrayectos => horariosTrayectos.turno)
+    horarios: HorariosTrayectos[];
+
 }

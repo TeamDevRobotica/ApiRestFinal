@@ -6,6 +6,24 @@ import { Personas } from "./Personas";
 @Entity("tutores", { schema: "control2" })
 export class Tutores {
 
+    public constructor(dni: number, apellidoYNombre: string, id_Estado_Civil: number,
+        id_Sexo: number,
+        id_Relacion: number,
+        id_Ocupacion: number,
+        id_Provincia: number,
+        id_Localidad: number,
+        id_Departamento: number) {
+        this.Id_Estado_Civil = id_Estado_Civil,
+            this.Dni_Tutor = dni,
+            this.Apellidos_Nombres = apellidoYNombre,
+            this.Id_Sexo = id_Sexo,
+            this.Id_Relacion = id_Relacion,
+            this.Id_Ocupacion = id_Ocupacion,
+            this.Id_Provincia = id_Provincia,
+            this.Id_Localidad = id_Localidad,
+            this.Id_Departamento = id_Departamento
+    }
+
     @PrimaryColumn("int", {
         nullable: false,
         primary: true,
@@ -124,7 +142,7 @@ export class Tutores {
     @Column("int", {
         nullable: false,
         name: "Id_Provincia"
-    }) 2
+    })
     Id_Provincia: number;
 
 
@@ -141,8 +159,10 @@ export class Tutores {
     })
     Id_Departamento: number;
 
-    @OneToOne(type => UserApp, userApp => userApp.tutor)
-    @JoinColumn()
+    @OneToOne(type => UserApp, {
+        cascade: true,
+    })
+    @JoinColumn({ name: "Id_UserApp" })
     userapp: UserApp;
 
     @OneToMany(type => Personas, hijo => hijo.tutor)

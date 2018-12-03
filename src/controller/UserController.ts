@@ -19,9 +19,9 @@ export class UserController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        console.log('//// ' + request.body.nivelId);
+        console.log('//// ' + request.body);
         let user = await this.userRepository.create(request.body);
-        console.log(' Save ' + user);
+        console.log(' Save ' + user['nivel']);
         return this.userRepository.save(user);
     }
 
@@ -41,13 +41,13 @@ export class UserController {
         response.setHeader('Access-Control-Allow-Credentials', 'true');
         console.log('usuario ' + request.params.usuario + ' clave ' + request.params.clave);
         const usuario = await this.userRepository.find({
-            relations: ['nivel', 'tutor', 'tutor.hijos', 'tutor.hijos.observaciones', 'tutor.hijos.notificaciones', 'tutor.hijos.notificaciones.estado', 'tutor.hijos.notificaciones.tipo', 'tutor.hijos.horario', 'tutor.hijos.horario.division', 'tutor.hijos.horario.turno', 'tutor.hijos.horario.trayecto'],
+            // relations: ['nivel', 'tutor', 'tutor.hijos', 'tutor.hijos.observaciones', 'tutor.hijos.notificaciones', 'tutor.hijos.notificaciones.estado', 'tutor.hijos.notificaciones.tipo', 'tutor.hijos.horario', 'tutor.hijos.horario.division', 'tutor.hijos.horario.turno', 'tutor.hijos.horario.trayecto'],
             where: {
                 nombreUsuario: request.params.usuario, claveUsuario: request.params.clave
             }
-        });
+        })
+
         console.log(usuario);
         return usuario;
     }
-
 }

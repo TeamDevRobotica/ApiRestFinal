@@ -45,4 +45,18 @@ export class Preinscripcion {
     @Column({ name: "Observacion" })
     observacion: string;
 
+    constructor(turno: number, apellidoYNombre: string, dni: number, fechaNacimiento: Date, nacionalidad: number, provincia: number, localidad: number, direccion: string, apellidoYNombreTutor: string, dniTutor: number, email: string, tel: string, observacion: string) {
+        this.turno = turno;
+        this.apellidoYNombre = apellidoYNombre;
+        this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.provincia = provincia;
+        this.localidad = localidad;
+        this.apellidoYNombreTutor = apellidoYNombreTutor;
+        this.dniTutor = dniTutor;
+        this.email = email;
+        this.tel = tel;
+        this.observacion = observacion;
+    }
 }

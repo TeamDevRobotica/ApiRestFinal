@@ -7,6 +7,8 @@ import { PaisControlador } from "./controller/PaisControlador";
 import { ProvinciaControlador } from "./controller/ProvinciaControlador";
 import { DepartamentoControlador } from "./controller/DepartamentoControlador";
 import { LocalidadControlador } from "./controller/LocalidadControlador";
+import { UserAppNivelControlador } from "./controller/UserAppNivelControlador";
+import { RegistrarUsuario } from "./controller/RegistrarUsuario";
 
 export const Routes = [{
     method: "get",
@@ -34,6 +36,12 @@ export const Routes = [{
     route: "/loguin/:usuario/:clave",
     controller: UserController,
     action: "loguin"
+}, {
+    // url para registrar
+    method: "post",
+    route: "/registrar",
+    controller: RegistrarUsuario,
+    action: "registrar"
 },
 ///PERSONAS
 {
@@ -65,7 +73,7 @@ export const Routes = [{
     action: "all"
 }, {
     method: "get",
-    route: "/tutores/:id",
+    route: "/tutores/:dni",
     controller: TutorControlador,
     action: "one"
 }, {
@@ -78,6 +86,16 @@ export const Routes = [{
     route: "/tutores",
     controller: TutorControlador,
     action: "remove"
+}, {
+    method: "get",
+    route: "/tutorSinUsuario/:dni",
+    controller: TutorControlador,
+    action: "devolverTutorSinUsuario"
+}, {
+    method: "get",
+    route: "/tutorPorUsuario/:id",
+    controller: TutorControlador,
+    action: "devolverTutorPorIdDeUsuario"
 },
 //PREINSCRIPCION
 {
@@ -161,7 +179,7 @@ export const Routes = [{
     route: "/provincia/:idPais",
     controller: ProvinciaControlador,
     action: "buscarProvinciasPais"
-},{
+}, {
     method: "post",
     route: "/provincia",
     controller: ProvinciaControlador,
@@ -215,4 +233,10 @@ export const Routes = [{
     route: "/localidad",
     controller: LocalidadControlador,
     action: "remove"
+}, {
+    // UserAPPNivel
+    method: "get",
+    route: "/nivel",
+    controller: UserAppNivelControlador,
+    action: "todosMenosAdmin"
 }];

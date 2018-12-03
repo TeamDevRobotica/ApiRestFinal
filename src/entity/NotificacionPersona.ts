@@ -5,7 +5,11 @@ import { Personas } from "./Personas";
 import { NotificacionPersonaEstado } from "./NotificacionPersonaEstado";
 import { NotificacionPersonaTipo } from "./NotificacionPersonaTipo";
 
-@Entity()
+@Entity({
+    orderBy: {
+        id: "ASC"
+    }
+})
 export class NotificacionPersona {
 
     @PrimaryGeneratedColumn()

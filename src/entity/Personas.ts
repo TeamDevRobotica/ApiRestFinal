@@ -3,6 +3,7 @@ import { Tutores } from "./Tutores";
 import { ObservacionPersona } from "./ObservacionPersona";
 import { NotificacionPersona } from "./NotificacionPersona";
 import { HorariosTrayectos } from "./HorariosTrayectos";
+import { UserApp } from "./UserApp";
 
 @Entity("personas", { schema: "control2" })
 // @Index("RefCargo_Persona92", ["Id_Cargo",])
@@ -213,4 +214,8 @@ export class Personas {
     @ManyToOne(type => HorariosTrayectos, horario => horario.personas)
     @JoinColumn({ name: "Id_Horario" })
     horario: HorariosTrayectos;
+
+    @OneToOne(type => UserApp)
+    @JoinColumn({ name: "Id_UserApp" })
+    userapp: UserApp;
 }
