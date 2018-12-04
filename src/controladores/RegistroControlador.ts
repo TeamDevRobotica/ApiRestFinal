@@ -108,7 +108,7 @@ export class RegistroControlador {
                 //Si existe el tutor y no tiene usuario
             } else {
 
-                let userApp = new UserApp(user['nombreUsuario'], 'pass', user['nivel']);
+                let userApp = new UserApp(user['nombreUsuario'], user['claveUsuario'], user['nivel']);
                 //inserto el usuario en la base de datos
                 await this.usuarioRepositorio.save(userApp);
 
