@@ -47,7 +47,7 @@ export class RegistroControlador {
                 //Si existe el alumno y no tiene usuario
             } else {
 
-                let userApp = new UserApp(user['nombreUsuario'], 'pass', user['nivel']);
+                let userApp = new UserApp(user['nombreUsuario'], user['claveUsuario'], user['nivel']);
 
                 let userACrear = await this.usuarioRepositorio.create(userApp);
                 //await this.usuarioRepositorio.save(await this.usuarioRepositorio.create(new UserApp(user['nombreUsuario'], 'pass', user['nivel'])));
@@ -60,7 +60,6 @@ export class RegistroControlador {
                     } else {
                         return 'Usuario no creado'
                     }
-
                 });
             }
         }
@@ -78,7 +77,7 @@ export class RegistroControlador {
             tutor = new Tutores(user['dni'], user['nombreYApellido'], 1, 1, 1, 1, 1, 1, 1);
 
             //Creo un usuario
-            let usuario = new UserApp(user['nombreUsuario'], 'pass', user['nivel'])
+            let usuario = new UserApp(user['nombreUsuario'], user['claveUsuario'], user['nivel']);
 
             //Asocio el usuario creado al tutor creado
             tutor.userapp = usuario;

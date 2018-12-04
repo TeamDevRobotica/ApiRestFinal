@@ -27,8 +27,8 @@ useExpressServer(app, {
 });
 
 const connection = createConnection();
-app.listen(3000);
-console.log("Express server corriendo en puerto 3000. ");
+app.listen(50000);
+console.log("Express server corriendo en puerto 50000. ");
 // createConnection().then(async connection => {
 
 //     // create express app
@@ -55,8 +55,8 @@ console.log("Express server corriendo en puerto 3000. ");
 //     // ...
 
 //     // start express server
-//     app.listen(3000);
+//     app.listen(50000);
 
-//     console.log("Express server corriendo en puerto 3000. ");
+//     console.log("Express server corriendo en puerto 50000. ");
 
 // }).catch(error => console.log(error));

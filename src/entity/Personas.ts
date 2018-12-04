@@ -5,16 +5,7 @@ import { NotificacionPersona } from "./NotificacionPersona";
 import { HorariosTrayectos } from "./HorariosTrayectos";
 import { UserApp } from "./UserApp";
 
-@Entity("personas", { schema: "control2" })
-// @Index("RefCargo_Persona92", ["Id_Cargo",])
-// @Index("RefDepartamento116", ["Id_Departamento",])
-// @Index("RefDivision9", ["Id_Horario",])
-// @Index("RefEstado_Civil38", ["Id_Estado_Civil",])
-// @Index("RefEstado_Persona7", ["Id_Estado",])
-// @Index("RefLocalidades6", ["Id_Localidad",])
-// @Index("RefProvincias5", ["Id_Provincia",])
-// @Index("RefSexo_Personas2", ["Id_Sexo",])
-// @Index("RefTutores80", ["Dni_Tutor",])
+@Entity("personas")
 export class Personas {
 
     @PrimaryColumn("int", {

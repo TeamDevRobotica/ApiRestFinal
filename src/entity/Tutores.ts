@@ -3,7 +3,7 @@ import { UserApp } from "./UserApp";
 import { Personas } from "./Personas";
 
 
-@Entity("tutores", { schema: "control2" })
+@Entity("tutores")
 export class Tutores {
 
     public constructor(dni: number, apellidoYNombre: string, id_Estado_Civil: number,
