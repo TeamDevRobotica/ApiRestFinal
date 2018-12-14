@@ -23,8 +23,21 @@ export class PreInscripcionControlador {
 
     @Post("/preinscripcion")
     async post(@Body() preInscripcion: any) {
-        let preinscripcion = await this.preInscripcionRepositorio.create(preInscripcion);
-        return this.preInscripcionRepositorio.save(preinscripcion);
+        let preinscripcion = await this.preInscripcionRepositorio.findOne({
+            where: {
+                dni: preInscripcion.dni
+            }
+        });
+        if (!preinscripcion) {
+            const pre = await this.preInscripcionRepositorio.create(preInscripcion);
+            return this.preInscripcionRepositorio.save(pre).then(resultado => {
+                if (resultado) {
+                    return "Preinscripcion realizada correctamente";
+                }
+            });
+        } else {
+            return "El dni ya se encuentra en una preinscripcion";
+        }
     }
 
     @Put("/preinscripcion/:id")

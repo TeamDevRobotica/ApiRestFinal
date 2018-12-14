@@ -17,9 +17,8 @@ export class TutorControlador {
     @Get("/tutores/:id")
     @OnUndefined(UserNotFoundError)
     getOne(@Param("id") id: number) {
-        if (id => 8) {
-            return this.tutorRepositorio.findOne(id);
-        }
+        console.log('Id ' + id.toString.length)
+        return this.tutorRepositorio.findOne(id);
     }
 
     @Post("/tutores")
